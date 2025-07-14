@@ -2,9 +2,16 @@
 <html>
 <head>
   <title>Doubt Killer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to Doubt Killer</h1>
-  <p>This is your AI-powered doubt-solving website.</p>
+  <div class="container">
+    <h1>Doubt Killer</h1>
+    <textarea id="question" placeholder="Apna doubt yahan likho..."></textarea><br>
+    <button onclick="askDoubt()">Submit</button>
+    <div id="response"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

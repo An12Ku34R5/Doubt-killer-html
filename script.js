@@ -1,3 +1,4 @@
+
 const form = document.querySelector("form");
 const input = document.querySelector("textarea");
 const output = document.querySelector("#output");
@@ -11,7 +12,7 @@ form.addEventListener("submit", async (e) => {
   output.innerText = "Thinking... 🤔";
 
   try {
-    const res = await fetch("https://doubtkiller.onrender.com/ask", {
+    const res = await fetch("https://doubt-killer-api.onrender.com/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

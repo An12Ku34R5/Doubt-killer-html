@@ -1,10 +1,17 @@
-async function askDoubt() {
-  const question = document.getElementById('question').value;
-  const responseDiv = document.getElementById('response');
-  responseDiv.innerHTML = "Soch raha hoon... 🤔";
+const form = document.querySelector("form");
+const input = document.querySelector("textarea");
+const output = document.querySelector("#output");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const question = input.value.trim();
+  if (!question) return;
+
+  output.innerText = "Thinking... 🤔";
 
   try {
-    const res = await fetch("https://api.ankurai.tech/ask", {
+    const res = await fetch("https://doubt-killer-api.onrender.com/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -13,8 +20,14 @@ async function askDoubt() {
     });
 
     const data = await res.json();
-    responseDiv.innerHTML = data.answer || "Koi jawaab nahi mila.";
+
+    if (data && data.answer) {
+      output.innerText = "Answer: " + data.answer;
+    } else {
+      output.innerText = "Sorry, couldn't get an answer.";
+    }
   } catch (err) {
-    responseDiv.innerHTML = "Error: " + err.message;
+    console.error(err);
+    output.innerText = "Error: Failed to fetch answer.";
   }
-}
+});

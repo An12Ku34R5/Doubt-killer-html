@@ -11,7 +11,7 @@ form.addEventListener("submit", async (e) => {
   output.innerText = "Thinking... 🤔";
 
   try {
-    const res = await fetch("https://doubt-killer-api.onrender.com/ask", {
+    const res = await fetch("https://doubtkiller.onrender.com/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
